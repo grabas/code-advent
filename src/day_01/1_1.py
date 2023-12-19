@@ -1,5 +1,5 @@
 import re
-from utils import get_input_file_contents
+from src.utils import get_input_file_contents
 
 """
 On each line, the calibration value can be found by combining the first digit
@@ -22,21 +22,22 @@ What is the sum of all of the calibration values?
 resource = "1_1.txt"
 
 
-def extract_digits(text):
-    return re.findall(r'\d', text)
+def extract_digits(string):
+    return re.findall(r'\d', string)
 
 
-def get_first_and_last_number(text):
-    numbers = extract_digits(text)
+def join_first_and_last_number(string):
+    numbers = extract_digits(string)
     return int("".join([numbers[0], numbers[-1]]))
 
 
 def main():
     total = 0
     for line in get_input_file_contents(resource):
-        total += get_first_and_last_number(line)
+        total += join_first_and_last_number(line)
 
     print(total)
+    return total
 
 
 if __name__ == '__main__':
