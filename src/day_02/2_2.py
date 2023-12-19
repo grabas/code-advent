@@ -41,11 +41,13 @@ def get_cube_power(game_record):
 
     for game_round in rounds:
         cubes = game_round.split(" ")
+        color = cubes[1]
+        cube_count = int(cubes[0])
 
-        if cubes[1] not in cube_counts:
-            cube_counts[cubes[1]] = int(cubes[0])
-        elif cube_counts[cubes[1]] < int(cubes[0]):
-            cube_counts[cubes[1]] = int(cubes[0])
+        if color not in cube_counts:
+            cube_counts[color] = cube_count
+        elif cube_counts[color] < cube_count:
+            cube_counts[color] = cube_count
 
     return math.prod(cube_counts.values())
 
