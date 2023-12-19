@@ -36,7 +36,7 @@ with only 12 red cubes, 13 green cubes, and 14 blue cubes.
 What is the sum of the IDs of those games?
 """
 
-resource = "2_1.txt"
+resource = "day_02.txt"
 
 cube_limits = {
     "red": 12,

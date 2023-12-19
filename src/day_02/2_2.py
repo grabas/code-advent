@@ -32,7 +32,7 @@ What is the sum of the power of these sets?
 """
 
 
-resource = "2_1.txt"
+resource = "day_02.txt"
 
 
 def get_cube_power(game_record):

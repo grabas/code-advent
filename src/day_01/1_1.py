@@ -19,7 +19,7 @@ Consider your entire calibration document (resource).
 What is the sum of all of the calibration values?
 """
 
-resource = "1_1.txt"
+resource = "day_01.txt"
 
 
 def extract_digits(string):
