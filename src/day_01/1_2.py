@@ -31,7 +31,7 @@ num = NumWordsToNum()
 
 
 def extract_digits(string):
-    return re.findall(r"(?=(zero|one|two|three|four|five|six|seven|eight|nine|\d))", string)
+    return re.findall(r"(?=(one|two|three|four|five|six|seven|eight|nine|\d))", string)
 
 
 def join_first_and_last_number(text):
