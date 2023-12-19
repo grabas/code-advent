@@ -52,6 +52,7 @@ def main():
        total += join_first_and_last_number(line)
 
     print(total)
+    return total
 
 
 if __name__ == '__main__':
