@@ -28,7 +28,7 @@ def extract_digits(string):
 
 def join_first_and_last_number(string):
     numbers = extract_digits(string)
-    return int("".join([numbers[0], numbers[-1]]))
+    return int(f"{numbers[0]}{numbers[-1]}")
 
 
 def main():
