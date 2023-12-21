@@ -23,6 +23,7 @@ To initialize the project on your local machine, run the following commands:
 
 ```bash
 $ git clone https://github.com/grabas/code-advent.git path/to/code-advent
+$ mkdir path/to/code-advent/resources
 $ cd path/to/code-advent
 $ python -m venv venv
 $ source venv/bin/activate
