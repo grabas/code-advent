@@ -1,3 +1,4 @@
+import math
 import re
 from collections import Counter
 from src.utils import get_input_file_contents
@@ -72,31 +73,34 @@ data = get_input_file_contents(resource)
 card_values = ["A", "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"][::-1]
 
 
-def rank_hand(hand):
-    print(hand)
-    character_count = Counter(hand)
-    print(character_count)
-    most_common_keys = [key for key, count in character_count.items() if count == max(character_count.values())]
-    highest_card_value = max([card_values.index(key) for key in most_common_keys]) + 1
+def sort_hands(hands):
+    return sorted(hands, key=lambda hand: (-get_hand_combination(hand), -get_hand_value_inprint(hand)), reverse=True)
 
-    distinct_values = len(character_count.values())
 
-    multiplier = 1000
-    if distinct_values == 1:
-        multiplier = 7000
-    elif distinct_values == 2:
-        multiplier = 6000 if 4 in character_count else 5000
-    elif distinct_values == 3:
-        multiplier = 4000 if 3 in character_count else 3000
-    elif distinct_values == 4:
-        multiplier = 2000
+def get_hand_combination(hand):
+    card_counts = Counter(hand).values()
+    power_mapping = {1: 7, 2: 6 if 4 in card_counts else 5, 3: 4 if 3 in card_counts else 3, 4: 2}
 
-    return highest_card_value * multiplier
+    return power_mapping.get(len(card_counts), 1)
+
+
+def get_hand_value_inprint(hand):
+    return int("".join(([str(card_values.index(card)).zfill(2) for card in list(hand)])))
+
+
+def sort_and_combine():
+    hands_and_values = [(hand.split(" ")[0], hand.split(" ")[1]) for hand in data]
+    sorted_hands = sort_hands([hand for hand, value in hands_and_values])
+    sorted_data = ["{} {}".format(hand, dict(hands_and_values)[hand]) for hand in sorted_hands]
+
+    return sorted_data
+
 
 def main():
-    for index, hand in enumerate(data):
-        print(rank_hand(hand.split(" ")[0]))
-        print("--------------------")
+    total = sum(int(datum.split(" ")[1]) * (i + 1) for i, datum in enumerate(sort_and_combine()))
+
+    print(total)
+    return total
 
 
 if __name__ == '__main__':
