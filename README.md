@@ -38,8 +38,8 @@ Since the input files are different for each caroler, you will need to replace t
 
 For example:
 ```bash
-$ python path/to/code-advent/src/day_01/1_1.py
-$ python path/to/code-advent/src/day_01/1_2.py
+$ python path/to/code-advent/src/solutions/day_01.py
+$ python path/to/code-advent/src/solutions/day_02.py
 ```
 
 ## Contributing
