@@ -34,7 +34,7 @@ $ pip install -r requirements.txt
 
 Each folder in the repository corresponds to a specific day of the challenge, containing the solution and input files. To run a solution, navigate to the day's directory and execute the Python script.
 
-Since the input files are different for each caroler, you will need to replace the contents of the input files located in /src/resources/*.txt with your own. You can find your input files on each day's challenge page.
+Since the input files are different for each caroler, you will need to provide your own to /src/resources/day_xx.txt. You can find your input files on each day's challenge page.
 
 For example:
 ```bash
