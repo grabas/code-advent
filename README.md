@@ -9,7 +9,7 @@ Who needs chocolate when you've got code?
 Forget silent nights; this is about late-night coding sessions.
 This repo is a collection of my solutions to these challenges.
 
-Marry Christmas! 🎄👨‍💻🎅 
+Merry Christmas! 🎄👨‍💻🎅 
 
 ## Getting Started
 
@@ -23,10 +23,10 @@ To initialize the project on your local machine, run the following commands:
 
 ```bash
 $ git clone https://github.com/grabas/code-advent.git path/to/code-advent
-$ mkdir path/to/code-advent/resources
+$ python -m venv path/to/code-advent
+$ mkdir path/to/code-advent/src/resources
 $ cd path/to/code-advent
-$ python -m venv venv
-$ source venv/bin/activate
+$ source path/to/code-advent/bin/activate
 $ pip install -r requirements.txt
 ```
 

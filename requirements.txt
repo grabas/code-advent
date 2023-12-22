@@ -1,1 +1,2 @@
 numwords-to-nums==1.2.0
+numpy==1.25.0
