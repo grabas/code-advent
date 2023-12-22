@@ -48,23 +48,23 @@ def process_seed_ranges():
     for current_map in maps:
         new_converted_seeds = []
         for i, seed_range in enumerate(seed_ranges):
-            for mapping in current_map:
-                conversion = mapping[2] - mapping[0]
+            for start, end, to in current_map:
+                conversion = to - start
 
-                if seed_range[0] >= mapping[0] and seed_range[1] <= mapping[1]:
+                if seed_range[0] >= start and seed_range[1] <= end:
                     seed_ranges[i] = (seed_range[0] + conversion, seed_range[1] + conversion)
                     break
-                elif seed_range[0] < mapping[0] <= seed_range[1]:
-                    if seed_range[1] <= mapping[1]:
-                        seed_ranges[i] = (seed_range[0], mapping[0] - 1)
-                        new_converted_seeds.append((mapping[0] + conversion, seed_range[1] + conversion))
+                elif seed_range[0] < start <= seed_range[1]:
+                    if seed_range[1] <= end:
+                        seed_ranges[i] = (seed_range[0], start - 1)
+                        new_converted_seeds.append((start + conversion, seed_range[1] + conversion))
                     else:
-                        seed_ranges[i] = (seed_range[0], mapping[0] - 1)
-                        new_converted_seeds.append((mapping[0] + conversion, mapping[1] + conversion))
-                        seed_ranges.insert(i + 1, (mapping[1] + 1, seed_range[1]))
-                elif mapping[0] <= seed_range[0] <= mapping[1]:
-                    new_converted_seeds.append((seed_range[0] + conversion, mapping[1] + conversion))
-                    seed_ranges[i] = (mapping[1] + 1, seed_range[1])
+                        seed_ranges[i] = (seed_range[0], start - 1)
+                        new_converted_seeds.append((start + conversion, end + conversion))
+                        seed_ranges.insert(i + 1, (end + 1, seed_range[1]))
+                elif start <= seed_range[0] <= end:
+                    new_converted_seeds.append((seed_range[0] + conversion, end + conversion))
+                    seed_ranges[i] = (end + 1, seed_range[1])
 
                 seed_range = seed_ranges[i]
 
