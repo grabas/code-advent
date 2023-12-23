@@ -1,5 +1,4 @@
 import re
-import math
 from src.utils import get_input_file_contents
 
 resource = "day_11.txt"
