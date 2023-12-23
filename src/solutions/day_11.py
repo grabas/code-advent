@@ -62,19 +62,18 @@ def get_distance_sum(expansion_multiplier=1):
 
 
 def part1():
-    print(get_distance_sum())
+    distance = get_distance_sum()
+
+    print(distance)
+    return distance
 
 
-def part2():
-    range_limit = 10
-    distances = [get_distance_sum(i) for i in range(1, range_limit)]
-
-    average_increase_per_step = int((distances[-1] - distances[0]) / (len(distances) - 1))
+def part2(distance):
+    average_increase_per_step = get_distance_sum(2) - distance
 
     target = 1000000
-    print(distances[1] + (average_increase_per_step * (target - 2)))
+    print(distance + (average_increase_per_step * (target - 2)))
 
 
 if __name__ == '__main__':
-    part1()
-    part2()
+    part2(part1())
