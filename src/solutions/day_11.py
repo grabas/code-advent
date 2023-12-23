@@ -72,7 +72,7 @@ def part2(distance):
     average_increase_per_step = get_distance_sum(2) - distance
 
     target = 1000000
-    print(distance + (average_increase_per_step * (target - 2)))
+    print(distance + (average_increase_per_step * (target - 1)))
 
 
 if __name__ == '__main__':
